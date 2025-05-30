@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Asistente Escolar - BA</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffe6f0;
+    color: #a60059;
+    margin: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #cc0066;
+  }
+  #busqueda {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    margin: 10px auto;
+    display: block;
+    border: 2px solid #cc0066;
+    border-radius: 8px;
+  }
+  button {
+    background-color: #cc0066;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #a60059;
+  }
+  .dork-list {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff0f6;
+    border: 2px solid #cc0066;
+    border-radius: 12px;
+    padding: 15px;
+  }
+  .dork-item {
+    margin-bottom: 15px;
+  }
+  .dork-item a {
+    color: #a60059;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .dork-item a:hover {
+    text-decoration: underline;
+  }
+  .descripcion {
+    font-size: 14px;
+    color: #660033;
+    margin-top: 4px;
+  }
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #a60059;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+  <h1>Asistente Escolar de Google Dorks</h1>
+  <input type="text" id="busqueda" placeholder="Escribe palabra clave para buscar..." />
+  <button onclick="buscarDorks()">Buscar Dorks</button>
+
+  <div id="resultado" class="dork-list"></div>
+
+  <footer>Hecho por BA - La mayor parte útiles para información escolar</footer>
+
+<script>
+  const dorks = [
+    {
+      dork: 'site:edu "tu tema"',
+      descripcion: 'Busca resultados solo en sitios educativos (.edu), ideal para trabajos escolares.'
+    },
+    {
+      dork: 'filetype:pdf "tu tema"',
+      descripcion: 'Encuentra documentos PDF relacionados con tu tema, muy útil para apuntes y libros.'
+    },
+    {
+      dork: 'intitle:"examen" "tu tema"',
+      descripcion: 'Busca páginas con la palabra "examen" en el título, relacionadas con tu materia.'
+    },
+    {
+      dork: '"respuesta" "tu pregunta"',
+      descripcion: 'Encuentra páginas que contienen la palabra "respuesta" y tu pregunta, para soluciones rápidas.'
+    },
+    {
+      dork: 'inurl:"foro" "tu tema"',
+      descripcion: 'Busca en foros discusiones relacionadas con tu tema, ideal para intercambiar ideas.'
+    },
+    {
+      dork: 'site:wikipedia.org "tu tema"',
+      descripcion: 'Busca información en Wikipedia sobre tu tema específico.'
+    },
+    {
+      dork: 'filetype:ppt "tu tema"',
+      descripcion: 'Encuentra presentaciones en PowerPoint sobre tu materia.'
+    },
+    {
+      dork: 'allintitle: "definición" "tu tema"',
+      descripcion: 'Busca páginas cuyo título contenga la palabra definición y tu tema, para definiciones claras.'
+    }
+  ];
+
+  function buscarDorks() {
+    const busqueda = document.getElementById('busqueda').value.trim();
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = '';
+
+    if (busqueda === '') {
+      resultadoDiv.innerHTML = '<p>Por favor, escribe una palabra clave para buscar.</p>';
+      return;
+    }
+
+    dorks.forEach(item => {
+      // Reemplaza "tu tema" o "tu pregunta" por la búsqueda escrita
+      let dorkLink = item.dork.replace(/"tu tema"/g, `"${busqueda}"`).replace(/"tu pregunta"/g, `"${busqueda}"`);
+      // Crea el enlace de búsqueda en Google
+      let url = `https://www.google.com/search?q=${encodeURIComponent(dorkLink)}`;
+      let dorkHTML = `
+        <div class="dork-item">
+          <a href="${url}" target="_blank" rel="noopener noreferrer">${dorkLink}</a>
+          <div class="descripcion">${item.descripcion}</div>
+        </div>
+      `;
+      resultadoDiv.innerHTML += dorkHTML;
+    });
+  }
+</script>
+</body>
+</html>
+REPORTE: Mejores Recomendaciones para la Conducción de Reuniones
+Alumno: Mayra Alejandra Cruz Estrada
+Fecha: 17 de May de 2025
+Introducción
+Este informe presenta una recopilación de las mejores recomendaciones para dirigir reuniones de forma efectiva. La información fue obtenida mediante técnicas de investigación avanzada en línea, utilizando comandos de búsqueda especializados conocidos como Google Dorks para encontrar documentos oficiales, presentaciones y manuales no fácilmente visibles en búsquedas comunes.
+Desarrollo
+Se realizó una investigación documental utilizando recursos disponibles en línea de fuentes educativas y gubernamentales. Esto permitió encontrar contenidos relevantes sobre cómo preparar, conducir y cerrar reuniones de manera efectiva.
+Conclusiones
+Las reuniones exitosas requieren planificación, orden y seguimiento. Es importante que cada encuentro tenga un propósito claro, una agenda definida, una buena gestión del tiempo y que al finalizar se deje constancia escrita de lo acordado.
+Ficha bibliográfica
+INAP (Instituto Nacional de Administración Pública). (2021). Manual para la conducción de reuniones efectivas. Gobierno de México. Disponible en: https://www.gob.mx/inap
+
+Universidad de Antioquia. (2019). Técnicas de participación en reuniones académicas. udea.edu.co
+
+Organización Internacional del Trabajo (OIT). (2020). Buenas prácticas para la gestión de equipos. ilo.org
+
+Slideshare. (2020). Errores comunes al conducir reuniones. Disponible en: https://www.slideshare.net
